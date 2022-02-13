@@ -17,7 +17,7 @@ public class BacacScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler((target.position - transform.position).normalized);
+        transform.LookAt(target.position, transform.up);
     }
 
     public void LaunchAnimation()
