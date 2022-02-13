@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     public float speed = 100.0f;
 
     private Transform target;
-    private Transform ruka;
+    public Transform Ruka;
 
     private Animator animator;
 
@@ -22,13 +22,13 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        ruka = gameObject.GetComponent<Transform>().Find("ruka");
+        //ruka = gameObject.GetComponent<Transform>().Find("ruka");
 
         attackAnimation = Animator.StringToHash("Cross Punch");
 
         speed = 10.0f;
 
-        transform.position = new Vector3(397, 0, 490);
+        transform.position = new Vector3(372, 0, 501);
 
         target = GameObject.Find("invisibleWall").transform;
     }
@@ -72,11 +72,14 @@ public class EnemyScript : MonoBehaviour
 
             //Debug.Log(other.relativeVelocity);
 
-            Debug.Log(GlobalVariableStorrage.DeltaFlick);
+            //Debug.Log(GlobalVariableStorrage.DeltaFlick);
 
             if (GlobalVariableStorrage.DeltaFlick > 0.6)
             {
-                gameObject.GetComponent<Rigidbody>().AddRelativeForce(0, 1000, 2500);
+                Vector3 directionVector = -Ruka.forward;
+                directionVector.y = 1;
+
+                gameObject.GetComponent<Rigidbody>().AddRelativeForce(directionVector * 15, ForceMode.Impulse);
                 animator.SetBool("Attack", false);
                 animator.SetBool("Die", true);
                 die = true;

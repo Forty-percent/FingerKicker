@@ -31,7 +31,7 @@ public class GlowingBallScript : MonoBehaviour
         if (collision.gameObject.transform.root.name == Constants.Hand)
         {
             Destroy(gameObject);
-            Debug.Log("Collided");
+            //Debug.Log("Collided");
         }
     }
 }

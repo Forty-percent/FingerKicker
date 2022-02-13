@@ -23,7 +23,7 @@ public class BacacScript : MonoBehaviour
     public void LaunchAnimation()
     {
         int animationNum = Random.Range(1, 3);
-        Debug.Log(animationNum);
+        //Debug.Log(animationNum);
 
         switch (animationNum)
         {

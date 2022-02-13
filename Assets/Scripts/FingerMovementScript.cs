@@ -10,7 +10,7 @@ public class FingerMovementScript : MonoBehaviour
     SerialPort serialPort;
 
     #region Props
-	public bool OpenSerial { get; set; } = true;
+	public bool OpenSerial { get; set; } = false;
     public Transform Global { get; set; }
     public Transform IndexBase { get; set; }
     public Transform IndexMid { get; set; }
@@ -47,9 +47,6 @@ public class FingerMovementScript : MonoBehaviour
 
     void Start()
     {
-        yaw = 0.5f;
-
-
 		if (OpenSerial)
 		{
 			serialPort = new SerialPort("COM12", 19200);
@@ -167,7 +164,7 @@ public class FingerMovementScript : MonoBehaviour
         //rigidbody.angularVelocity = Vector3.zero;
 
         float deltaFlick = flick - lastFlickValue;
-        Debug.Log(deltaFlick);
+        //Debug.Log(deltaFlick);
 
         GlobalVariableStorrage.DeltaFlick = deltaFlick;
         

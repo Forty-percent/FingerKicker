@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4054197010163699241, guid: 4c4dd225a5b82c640aa9d3241afee0b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 374.46
+      value: 374.44
       objectReference: {fileID: 0}
     - target: {fileID: 4054197010163699241, guid: 4c4dd225a5b82c640aa9d3241afee0b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -440,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4054197010163699241, guid: 4c4dd225a5b82c640aa9d3241afee0b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 482.1
+      value: 481.86
       objectReference: {fileID: 0}
     - target: {fileID: 4054197010163699241, guid: 4c4dd225a5b82c640aa9d3241afee0b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -483,21 +483,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1771014443, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
+      propertyPath: Ruka
+      value: 
+      objectReference: {fileID: 1681111397}
     - target: {fileID: 5920000493547157938, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5920000493547157938, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 379.24
+      value: 372.4
       objectReference: {fileID: 0}
     - target: {fileID: 5920000493547157938, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.501
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 5920000493547157938, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 501.77
+      value: 501.4
       objectReference: {fileID: 0}
     - target: {fileID: 5920000493547157938, guid: a128e037265a73c44a9ba3c9a4cadc27, type: 3}
       propertyPath: m_LocalRotation.w
@@ -616,6 +620,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.039999757, y: 0.007420863, z: 0.07726573}
   m_Center: {x: 0.0811165, y: 0.13435191, z: 0.025511201}
+--- !u!4 &1681111397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5269875947931034318, guid: 80628edcc05c8bf4cbde0ab3b43f66c4, type: 3}
+  m_PrefabInstance: {fileID: 1968084526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724424782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -626,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 3535043969312562233, guid: 74e98b934959c1c4399f099a3f8069a3, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 1470709028048089997, guid: d106d5f1ce771774cbe2ca79f407b774, type: 3}
+      objectReference: {fileID: 1716816621381216619, guid: d106d5f1ce771774cbe2ca79f407b774, type: 3}
     - target: {fileID: 3791836412387395930, guid: 74e98b934959c1c4399f099a3f8069a3, type: 3}
       propertyPath: m_RootOrder
       value: 2
