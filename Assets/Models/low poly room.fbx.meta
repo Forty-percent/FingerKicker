@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: 34a208f4773fe0246905f12117f0e120
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: -1559071518392153964
+    second: Armature|Cube.001Action
+  - first:
+      74: -3620637933483131629
+    second: Armature|Empty.001Action
+  - first:
+      74: 464729275189209187
+    second: Armature|Empty.002Action
+  - first:
+      74: -1900132722527647994
+    second: Armature|LightAction
+  - first:
+      74: -5531278108092522383
+    second: Armature|room.001Action
+  - first:
+      74: -3915131422061517104
+    second: Empty|Cube.001Action
+  - first:
+      74: -1779458952936665273
+    second: Empty|Empty.001Action
+  - first:
+      74: -2662208865924906605
+    second: Empty|Empty.002Action
+  - first:
+      74: 8138411127928614509
+    second: Empty|LightAction
+  - first:
+      74: -5082457114100121969
+    second: Empty|room.001Action
+  - first:
+      74: -6296463558412107676
+    second: Empty.001|Cube.001Action
+  - first:
+      74: -6949670309919530470
+    second: Empty.001|Empty.001Action
+  - first:
+      74: -3054066582643419362
+    second: Empty.001|Empty.002Action
+  - first:
+      74: -2795131798105601852
+    second: Empty.001|LightAction
+  - first:
+      74: -6053395162435112399
+    second: Empty.001|room.001Action
+  - first:
+      74: -3626411926130290933
+    second: Empty.002|Cube.001Action
+  - first:
+      74: -6592438479637812246
+    second: Empty.002|Empty.001Action
+  - first:
+      74: -7042117135717691717
+    second: Empty.002|Empty.002Action
+  - first:
+      74: 5200558167153230692
+    second: Empty.002|LightAction
+  - first:
+      74: -7582692898483577817
+    second: Empty.002|room.001Action
+  - first:
+      74: -8515560403302317629
+    second: Cube.001|Cube.001Action
+  - first:
+      74: 887831124455633703
+    second: Cube.001|Empty.001Action
+  - first:
+      74: -943821642704947982
+    second: Cube.001|Empty.002Action
+  - first:
+      74: 7230306397454217088
+    second: Cube.001|LightAction
+  - first:
+      74: -3793312827494206908
+    second: Cube.001|room.001Action
+  - first:
+      74: -6279848307280364913
+    second: room.001|Cube.001Action
+  - first:
+      74: 6570588491557269351
+    second: room.001|Empty.001Action
+  - first:
+      74: 5297065768171311736
+    second: room.001|Empty.002Action
+  - first:
+      74: 669850184161650829
+    second: room.001|LightAction
+  - first:
+      74: 438946399748366479
+    second: room.001|room.001Action
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: c3ebeb3a302adbd49ae82673c14ada57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 053b533af5f810441a7f018529b86737, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 974231698db36a549a89870eb942900f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 8aca3e2cce21be74f8c2ca2611541b25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sec_Zeiger
+    second: {fileID: 2100000, guid: e4f891d7af5abeb4ea5451fa56c9bc16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Uhr_2
+    second: {fileID: 2100000, guid: 5ec7352586d3366439e3bb1432b033cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bed
+    second: {fileID: 2100000, guid: e7123c21ad8f6a34681943fbaf8f40d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book
+    second: {fileID: 2100000, guid: 57a7287279de7004c87be4a1e5ddca7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: borders
+    second: {fileID: 2100000, guid: 61be026731167f14da0b691a861f6581, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chair
+    second: {fileID: 2100000, guid: bae60dfb4a3864046bb79205444696a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cushion
+    second: {fileID: 2100000, guid: 663b13ef2f8311e4aa351ce80cad0bc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: min_Zeiger
+    second: {fileID: 2100000, guid: 1bf7607874d85454ba4e386f59a64cfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: painting 1
+    second: {fileID: 2100000, guid: 2bec123422f57764d830d90154474c1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: painting 2
+    second: {fileID: 2100000, guid: 3db507ef43922db488cdd3ddee9c6838, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room
+    second: {fileID: 2100000, guid: b31d87cb674dfac4b9385d754d320da0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table
+    second: {fileID: 2100000, guid: 428cda1234b64824b87be186f9c556ed, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
