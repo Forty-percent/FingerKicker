@@ -7,13 +7,12 @@ public class GlowingBallScript : MonoBehaviour
     private Transform target;
     public Rigidbody rigidbody;
 
-    public float force = 50f;
+    public float force = 1f;
 
     void Start()
     {
         target = GameObject.Find(Constants.Hand).transform;
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        
     }
 
     void Update()

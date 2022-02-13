@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class BacacScript : MonoBehaviour
 {
+    private Transform target;
     public GameObject projectile;
     public Animator animator;
     void Start()
     {
-        InvokeRepeating("LaunchAnimation", 2f, 6f);
+        Invoke("LaunchAnimation", 2f);
         animator = gameObject.GetComponent<Animator>();
+        target = GameObject.Find(Constants.Hand).transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler((target.position - transform.position).normalized);
     }
 
     public void LaunchAnimation()
@@ -31,6 +34,8 @@ public class BacacScript : MonoBehaviour
                 LaunchJumpProjectileAnimation();
                 break;
         }
+
+        Invoke("LaunchAnimation", Random.Range(6f, 20f));
     }
 
     private void LaunchProjectileAnimation()

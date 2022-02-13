@@ -76,7 +76,7 @@ public class EnemyScript : MonoBehaviour
 
             if (GlobalVariableStorrage.DeltaFlick > 0.6)
             {
-                gameObject.GetComponent<Rigidbody>().AddRelativeForce(0, 1000, -2500);
+                gameObject.GetComponent<Rigidbody>().AddRelativeForce(0, 1000, 2500);
                 animator.SetBool("Attack", false);
                 animator.SetBool("Die", true);
                 die = true;
