@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa31aef6f1d0d364aa844b7d2c7bef2c, type: 3}
       propertyPath: m_Name
-      value: x1
+      value: x1 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa31aef6f1d0d364aa844b7d2c7bef2c, type: 3}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  Ruka: {fileID: 5269875947931034318, guid: 80628edcc05c8bf4cbde0ab3b43f66c4, type: 3}
 --- !u!114 &1771014448
 MonoBehaviour:
   m_ObjectHideFlags: 0

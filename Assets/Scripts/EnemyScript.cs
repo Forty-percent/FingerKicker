@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     private bool run;
     private bool attack;
     private bool die;
+    private bool jump;
 
     int attackAnimation;
 
@@ -28,9 +29,12 @@ public class EnemyScript : MonoBehaviour
 
         speed = 10.0f;
 
-        transform.position = new Vector3(372, 0, 501);
+        //transform.position = new Vector3(372, 0, 501);
 
         target = GameObject.Find("invisibleWall").transform;
+        
+        animator.Play("jump");
+        gameObject.GetComponent<Rigidbody>().AddForce(0, 7, 0, ForceMode.Impulse);
     }
 
 
