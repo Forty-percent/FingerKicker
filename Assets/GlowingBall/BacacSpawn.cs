@@ -12,7 +12,10 @@ public class BacacSpawn : MonoBehaviour
 
     void OnSpawn()
     {
-        Instantiate(enemy, Common.RandomPointOnPlane(gameObject), transform.rotation);
-        Invoke("OnSpawn", Random.Range(30f, 50f));
+        if (!GlobalVariableStorrage.GameOver)
+        {
+            Instantiate(enemy, Common.RandomPointOnPlane(gameObject), transform.rotation);
+            Invoke("OnSpawn", Random.Range(30f, 50f));
+        }
     }
 }

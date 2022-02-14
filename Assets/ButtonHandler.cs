@@ -9,4 +9,10 @@ public class ButtonHandler : MonoBehaviour
     {
         EditorSceneManager.LoadScene(1);
     }
+
+    public void RestartGame()
+    {
+        GlobalVariableStorrage.GameOver = false;
+        EditorSceneManager.LoadScene(1);
+    }
 }

@@ -39,12 +39,19 @@ public class EnemyScript : MonoBehaviour
 
 
         AddEvent(GetClipIndexByName("Cross Punch"), 0.9f, "DealDamage", 0);
+        AddEvent(GetClipIndexByName("Zombie Death"), 0.9f, "ResizeCollider", 0);
         fog.Play();
     }
 
     public void DealDamage()
     {
         healthbarScript.SetHealth(GlobalVariableStorrage.Health -= 1);
+    }
+
+    public void ResizeCollider()
+    {
+        var boxColider = gameObject.GetComponent<BoxCollider>();
+        boxColider.size = new Vector3(boxColider.size.x, 0.1f, boxColider.size.z);
     }
 
     void Update()
@@ -55,7 +62,7 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }*/
 
-        if (run && !die && !end)
+        if (run && !die && !end && !GlobalVariableStorrage.GameOver)
         {
             Vector3 targetDirection = target.position - transform.position;
 
@@ -69,13 +76,13 @@ public class EnemyScript : MonoBehaviour
         }
 
 
-        if (Vector3.Distance(transform.position, target.position) < 6.0f && !die && !end)
+        if (Vector3.Distance(transform.position, target.position) < 6.0f && !die && !end && !GlobalVariableStorrage.GameOver)
         {
             animator.SetBool("Attack", true);
             run = false;
             attack = true;
         }
-        else if (Vector3.Distance(transform.position, target.position) >= 6.0f && !die)
+        else if (Vector3.Distance(transform.position, target.position) >= 6.0f && !die && !GlobalVariableStorrage.GameOver)
         {
             animator.SetBool("Attack", false);
             run = true;
@@ -86,6 +93,14 @@ public class EnemyScript : MonoBehaviour
         if (GlobalVariableStorrage.GameOver)
         {
             end = true;
+            run = false;
+            attack = false;
+            //die = false;
+            
+            //animator.SetBool("Run", false);
+            animator.SetBool("Attack", false);
+            //animator.SetBool("Die", false);
+
             animator.SetBool("End", true);
         }
     }

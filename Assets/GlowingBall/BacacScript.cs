@@ -56,7 +56,7 @@ public class BacacScript : MonoBehaviour
     void Activity()
     {
         int activityNum = Random.Range(1, 4);
-        Debug.Log($"Activity num {activityNum}");
+        //Debug.Log($"Activity num {activityNum}");
 
         switch (activityNum)
         {
@@ -79,23 +79,27 @@ public class BacacScript : MonoBehaviour
 
     public void LaunchAnimation()
     {
-        if (!move)
+        if (!GlobalVariableStorrage.GameOver)
         {
-            int animationNum = Random.Range(1, 3);
-            Debug.Log($"Animation num ${animationNum}");
-
-            switch (animationNum)
+            if (!move)
             {
-                case 1:
-                    LaunchProjectileAnimation();
-                    break;
-                case 2:
-                    LaunchJumpProjectileAnimation();
-                    break;
+                int animationNum = Random.Range(1, 3);
+                //Debug.Log($"Animation num ${animationNum}");
+
+                switch (animationNum)
+                {
+                    case 1:
+                        LaunchProjectileAnimation();
+                        break;
+                    case 2:
+                        LaunchJumpProjectileAnimation();
+                        break;
+                }
             }
+
+            Invoke("LaunchAnimation", Random.Range(6f, 20f));
         }
 
-        Invoke("LaunchAnimation", Random.Range(6f, 20f));
     }
 
     private void LaunchProjectileAnimation()
