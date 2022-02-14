@@ -7,7 +7,7 @@ public class GlowingBallScript : MonoBehaviour
     private Transform target;
     public Rigidbody rigidbody;
 
-    public float force = 1f;
+    public float force = 20f;
 
     void Start()
     {
@@ -17,7 +17,9 @@ public class GlowingBallScript : MonoBehaviour
 
     void Update()
     {
-        rigidbody.velocity = (target.position - transform.position).normalized * force;
+        var vel = (target.position - transform.position).normalized;
+        force -= 0.01f;
+        rigidbody.velocity = vel * force;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -28,7 +30,8 @@ public class GlowingBallScript : MonoBehaviour
             Debug.Log("Collided");
         }*/
 
-        if (collision.gameObject.transform.root.name == Constants.Hand)
+        if (collision.gameObject.transform.root.name == Constants.Hand 
+            || collision.gameObject.transform.root.name == Constants.InvisibleWall)
         {
             Destroy(gameObject);
             //Debug.Log("Collided");
