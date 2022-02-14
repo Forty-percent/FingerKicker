@@ -18,9 +18,13 @@ public class EnemySpawner : MonoBehaviour
 
     void OnSpawnEnemy()
     {
-        SpawnEnemy();
-        //Debug.Log("Spawned enemy");
-        Invoke("OnSpawnEnemy", Random.Range(1f, 10f)); // promjeniti interval min i max sec do iduceg spawna ako treba
+        if (!GlobalVariableStorrage.GameOver)
+        {
+            SpawnEnemy();
+            //Debug.Log("Spawned enemy");
+            Invoke("OnSpawnEnemy", Random.Range(1f, 10f)); // promjeniti interval min i max sec do iduceg spawna ako treba
+        }
+
     }
 
     void SpawnEnemy()

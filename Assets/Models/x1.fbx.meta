@@ -63,7 +63,7 @@ ModelImporter:
       takeName: Cross Punch
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 44
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -86,7 +86,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 58.800003
+      additiveReferencePoseFrame: 49
     - serializedVersion: 16
       name: run (1)
       takeName: run
@@ -157,8 +157,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -173,7 +173,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 336
     - serializedVersion: 16
       name: run
       takeName: run

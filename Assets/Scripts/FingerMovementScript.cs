@@ -10,7 +10,7 @@ public class FingerMovementScript : MonoBehaviour
     SerialPort serialPort;
 
     #region Props
-	public bool OpenSerial { get; set; } = true;
+	public bool OpenSerial { get; set; } = false;
     public Transform Global { get; set; }
     public Transform IndexBase { get; set; }
     public Transform IndexMid { get; set; }
@@ -44,6 +44,12 @@ public class FingerMovementScript : MonoBehaviour
 
     private float lastFlickValue;
 
+    public float maxHealth;
+
+    private GameObject healthBar;
+    private HealthbarScript healthbarScript;
+    private GameManager gameManager;
+
 
     void Start()
     {
@@ -52,6 +58,16 @@ public class FingerMovementScript : MonoBehaviour
 			serialPort = new SerialPort("COM12", 19200);
 			serialPort.Open();
 		}
+
+        maxHealth = 100;
+
+        healthBar = GameObject.Find("Health bar");
+        healthbarScript = healthBar.GetComponent<HealthbarScript>();
+
+        GlobalVariableStorrage.Health = maxHealth;
+        healthbarScript.SetMaxHealth(maxHealth);
+
+        gameManager = FindObjectOfType<GameManager>();
 
         string handGlobal = "GLOBAL_cntrl";
         Global = GetComponent<Transform>().Find(handGlobal);
@@ -160,13 +176,15 @@ public class FingerMovementScript : MonoBehaviour
             Debug.Log("rip");
         }
 
-        //rigidbody.velocity = Vector3.zero;
-        //rigidbody.angularVelocity = Vector3.zero;
+        if (GlobalVariableStorrage.Health <= 0)
+        {
+            gameManager.EndGame();
+        }
 
-        float deltaFlick = flick - lastFlickValue;
-        //Debug.Log(deltaFlick);
+        float deltaFlick = Mathf.Abs(flick - lastFlickValue);
 
         GlobalVariableStorrage.DeltaFlick = deltaFlick;
         
+        lastFlickValue = flick;
     }
 }

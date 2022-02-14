@@ -9,38 +9,50 @@ public class EnemyScript : MonoBehaviour
     public float speed = 100.0f;
 
     private Transform target;
-    public Transform Ruka;
-
+    private GameObject healthBar;
+    private HealthbarScript healthbarScript;
     private Animator animator;
+    public Transform Ruka;
 
     private bool run;
     private bool attack;
     private bool die;
     private bool jump;
-
-    int attackAnimation;
+    private bool end;
 
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
-        //ruka = gameObject.GetComponent<Transform>().Find("ruka");
-
-        attackAnimation = Animator.StringToHash("Cross Punch");
-
         speed = 10.0f;
 
-        //transform.position = new Vector3(372, 0, 501);
+        animator = gameObject.GetComponent<Animator>();
 
         target = GameObject.Find("invisibleWall").transform;
-        
+
+        healthBar = GameObject.Find("Health bar");
+        healthbarScript = healthBar.GetComponent<HealthbarScript>();
+
         animator.Play("jump");
         gameObject.GetComponent<Rigidbody>().AddForce(0, 7, 0, ForceMode.Impulse);
+
+
+
+        AddEvent(GetClipIndexByName("Cross Punch"), 0.9f, "DealDamage", 0);
     }
 
+    public void DealDamage()
+    {
+        healthbarScript.SetHealth(GlobalVariableStorrage.Health -= 5);
+    }
 
     void Update()
     {
-        if (run && !die)
+        /*if (Vector3.Dot((transform.position - Ruka.position), Ruka.forward) > 0)
+        {
+            //Debug.Log("bla");
+            Destroy(gameObject);
+        }*/
+
+        if (run && !die && !end)
         {
             Vector3 targetDirection = target.position - transform.position;
 
@@ -54,7 +66,7 @@ public class EnemyScript : MonoBehaviour
         }
 
 
-        if (Vector3.Distance(transform.position, target.position) < 6.0f && !die)
+        if (Vector3.Distance(transform.position, target.position) < 6.0f && !die && !end)
         {
             animator.SetBool("Attack", true);
             run = false;
@@ -67,23 +79,24 @@ public class EnemyScript : MonoBehaviour
             attack = false;
         }
 
+
+        if (GlobalVariableStorrage.GameOver)
+        {
+            end = true;
+            animator.SetBool("End", true);
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.transform.root.name == "ruka")
         {
-
-            //Debug.Log(other.relativeVelocity);
-
-            //Debug.Log(GlobalVariableStorrage.DeltaFlick);
-
-            if (GlobalVariableStorrage.DeltaFlick > 0.6)
+            if (GlobalVariableStorrage.DeltaFlick > 0.2)
             {
                 Vector3 directionVector = -Ruka.forward;
-                directionVector.y = 1;
+                directionVector.y = 0.8f;
 
-                gameObject.GetComponent<Rigidbody>().AddRelativeForce(directionVector * 15, ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(directionVector * 15, ForceMode.Impulse);
                 animator.SetBool("Attack", false);
                 animator.SetBool("Die", true);
                 die = true;
@@ -92,5 +105,28 @@ public class EnemyScript : MonoBehaviour
             }
 
         }
+    }
+
+    void AddEvent(int Clip, float time, string functionName, float floatParameter)
+    {
+        AnimationEvent animationEvent = new AnimationEvent();
+        animationEvent.functionName = functionName;
+        animationEvent.floatParameter = floatParameter;
+        animationEvent.time = time;
+        AnimationClip clip = animator.runtimeAnimatorController.animationClips[Clip];
+        clip.AddEvent(animationEvent);
+    }
+
+    int GetClipIndexByName(string name)
+    {
+        int i = 0;
+        foreach (AnimationClip animationClip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (animationClip.name == name)
+                return i;
+            i++;
+        }
+
+        return 0;
     }
 }
