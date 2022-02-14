@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
 
     private Transform target;
     public Transform Ruka;
+    public ParticleSystem fog;
 
     private Animator animator;
 
@@ -35,6 +36,7 @@ public class EnemyScript : MonoBehaviour
         
         animator.Play("jump");
         gameObject.GetComponent<Rigidbody>().AddForce(0, 7, 0, ForceMode.Impulse);
+        fog.Play();
     }
 
 

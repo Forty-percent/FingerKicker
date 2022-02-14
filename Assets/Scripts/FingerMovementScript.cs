@@ -10,7 +10,7 @@ public class FingerMovementScript : MonoBehaviour
     SerialPort serialPort;
 
     #region Props
-	public bool OpenSerial { get; set; } = true;
+	public bool OpenSerial { get; set; } = false;
     public Transform Global { get; set; }
     public Transform IndexBase { get; set; }
     public Transform IndexMid { get; set; }
