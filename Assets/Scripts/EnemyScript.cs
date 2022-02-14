@@ -44,7 +44,7 @@ public class EnemyScript : MonoBehaviour
 
     public void DealDamage()
     {
-        healthbarScript.SetHealth(GlobalVariableStorrage.Health -= 5);
+        healthbarScript.SetHealth(GlobalVariableStorrage.Health -= 1);
     }
 
     void Update()
@@ -94,7 +94,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.gameObject.transform.root.name == "ruka")
         {
-            if (GlobalVariableStorrage.DeltaFlick > 0.2)
+            if (GlobalVariableStorrage.DeltaFlick > 0.1)
             {
                 Vector3 directionVector = -Ruka.forward;
                 directionVector.y = 0.8f;
