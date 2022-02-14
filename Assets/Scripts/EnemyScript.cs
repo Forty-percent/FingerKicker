@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     private Transform target;
     private GameObject healthBar;
     private HealthbarScript healthbarScript;
+    public ParticleSystem fog;
+
     private Animator animator;
     public Transform Ruka;
 
@@ -37,6 +39,7 @@ public class EnemyScript : MonoBehaviour
 
 
         AddEvent(GetClipIndexByName("Cross Punch"), 0.9f, "DealDamage", 0);
+        fog.Play();
     }
 
     public void DealDamage()
