@@ -98,7 +98,7 @@ Transform:
   - {fileID: 5751761061290558944}
   - {fileID: 5751761061263977613}
   - {fileID: 5751761061279735687}
-  - {fileID: 1516538098851144021}
+  - {fileID: 2493521358153202574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1716816621381216619, guid: d106d5f1ce771774cbe2ca79f407b774, type: 3}
   spawnArea: {fileID: 5630733359430549926, guid: f8845d50e08d45647a1407ee0caa5a9a, type: 3}
-  fog: {fileID: 1975237166504948351, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+  fog: {fileID: 3700517499394619754, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
   animator: {fileID: 0}
   speed: 1
 --- !u!1 &5751761061260949320
@@ -1871,10 +1871,14 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 2.69
       objectReference: {fileID: 0}
+    - target: {fileID: 3240450534789965989, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
---- !u!4 &1516538098851144021 stripped
+--- !u!4 &2493521358153202574 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1975237166504948350, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3240450534789965989, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
   m_PrefabInstance: {fileID: 1036567754472379179}
   m_PrefabAsset: {fileID: 0}

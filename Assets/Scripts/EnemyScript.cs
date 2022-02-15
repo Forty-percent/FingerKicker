@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //https://blog.studica.com/unity-tutorial-animator-controllers
 
@@ -11,6 +12,10 @@ public class EnemyScript : MonoBehaviour
     private Transform target;
     private GameObject healthBar;
     private HealthbarScript healthbarScript;
+
+    private GameObject score;
+    private Text scoreText;
+    
     public ParticleSystem fog;
 
     private Animator animator;
@@ -22,9 +27,13 @@ public class EnemyScript : MonoBehaviour
     private bool jump;
     private bool end;
 
+    private bool setScore;
+
     void Start()
     {
         speed = 10.0f;
+
+        setScore = false;
 
         animator = gameObject.GetComponent<Animator>();
 
@@ -36,11 +45,12 @@ public class EnemyScript : MonoBehaviour
         animator.Play("jump");
         gameObject.GetComponent<Rigidbody>().AddForce(0, 7, 0, ForceMode.Impulse);
 
-
-
         AddEvent(GetClipIndexByName("Cross Punch"), 0.9f, "DealDamage", 0);
         AddEvent(GetClipIndexByName("Zombie Death"), 0.9f, "ResizeCollider", 0);
-        fog.Play();
+        Instantiate(fog, transform.position, transform.rotation);
+
+        score = GameObject.Find("ScoreText");
+        scoreText = score.GetComponent<Text>();
     }
 
     public void DealDamage()
@@ -96,7 +106,7 @@ public class EnemyScript : MonoBehaviour
             run = false;
             attack = false;
             //die = false;
-            
+
             //animator.SetBool("Run", false);
             animator.SetBool("Attack", false);
             //animator.SetBool("Die", false);
@@ -120,8 +130,21 @@ public class EnemyScript : MonoBehaviour
                 die = true;
                 run = false;
                 attack = false;
+
+                if (!setScore)
+                {
+                    GlobalVariableStorrage.Score++;
+                    scoreText.text = GlobalVariableStorrage.Score.ToString();
+                    setScore = true;
+                }
             }
 
+        }
+
+        if (other.gameObject.transform.root.name == "windowcollision")
+        {
+            GlobalVariableStorrage.Score += 100;
+            scoreText.text = GlobalVariableStorrage.Score.ToString();
         }
     }
 

@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 1916299166997154546}
   - component: {fileID: 2837133937643499128}
   m_Layer: 0
-  m_Name: x1 Variant
+  m_Name: x1_Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,7 @@ Transform:
   m_Children:
   - {fileID: 6348973571143496006}
   - {fileID: 178923466416568460}
-  - {fileID: 6163270067552356608}
+  - {fileID: 7068754017363284955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  fog: {fileID: 3700517499394619754, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
   Ruka: {fileID: 5269875947931034318, guid: 80628edcc05c8bf4cbde0ab3b43f66c4, type: 3}
-  fog: {fileID: 1975237166504948351, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
 --- !u!114 &2837133937643499128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,10 +1821,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3240450534789965989, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
---- !u!4 &6163270067552356608 stripped
+--- !u!4 &7068754017363284955 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1975237166504948350, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3240450534789965989, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
   m_PrefabInstance: {fileID: 5683866828240894846}
   m_PrefabAsset: {fileID: 0}

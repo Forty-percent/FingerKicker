@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  fog: {fileID: 1975237166504948351, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
+  fog: {fileID: 3700517499394619754, guid: 327d241c73990c04e981b172c8d17dd9, type: 3}
   Ruka: {fileID: 5269875947931034318, guid: 80628edcc05c8bf4cbde0ab3b43f66c4, type: 3}
 --- !u!114 &1771014448
 MonoBehaviour:

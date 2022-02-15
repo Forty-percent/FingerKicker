@@ -21,7 +21,7 @@ public class BacacScript : MonoBehaviour
         Invoke("Activity", 0f);
         animator = gameObject.GetComponent<Animator>();
         target = GameObject.Find(Constants.Hand).transform;
-        fog.Stop();
+        Instantiate(fog, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
@@ -64,6 +64,7 @@ public class BacacScript : MonoBehaviour
                 NewLocation();
                 break;
             case 2:
+                Instantiate(fog, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
         }

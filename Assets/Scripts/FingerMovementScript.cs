@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO.Ports;
-
+using System.Threading;
 
 public class FingerMovementScript : MonoBehaviour
 {
     SerialPort serialPort;
 
     #region Props
-	public bool OpenSerial { get; set; } = false;
+    public bool OpenSerial { get; set; } = true;
     public Transform Global { get; set; }
     public Transform IndexBase { get; set; }
     public Transform IndexMid { get; set; }
@@ -46,18 +46,22 @@ public class FingerMovementScript : MonoBehaviour
 
     public float maxHealth;
 
+    private Vector3 gloveRotation;
     private GameObject healthBar;
     private HealthbarScript healthbarScript;
     private GameManager gameManager;
+    private Thread backgroundThread;
 
 
     void Start()
     {
-		if (OpenSerial)
-		{
-			serialPort = new SerialPort("COM12", 19200);
-			serialPort.Open();
-		}
+        if (OpenSerial)
+        {
+            serialPort = new SerialPort(DropDownHandler.portName, 19200);
+            serialPort.Open();
+            backgroundThread = new Thread(new ThreadStart(ReadSerial));
+            backgroundThread.Start();
+        }
 
         maxHealth = 100;
 
@@ -115,34 +119,54 @@ public class FingerMovementScript : MonoBehaviour
         ThumbTop = GetComponent<Transform>().Find(thumbTopPath);
     }
 
-   
+
+    void ReadSerial()
+    {
+        if (OpenSerial)
+        {
+            while (true)
+            {
+                string value = serialPort.ReadLine();
+                string[] gloveData = value.Split('/');
+                //Debug.Log(gloveData);
+
+
+                if (gloveData.Length == 4)
+                {
+                    try
+                    {
+                        flick = float.Parse(gloveData[3]);
+                        gloveRotation.x = -float.Parse(gloveData[0]);
+                        gloveRotation.z = -float.Parse(gloveData[1]);
+                        gloveRotation.y = -float.Parse(gloveData[2]);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.Log(value);
+                    }
+                }
+            }
+        }
+    }
+
     void Update()
     {
         if (Global != null)
         {
             var rotationVector = transform.rotation.eulerAngles;
-			
-			if (OpenSerial)
-			{
-				string value = serialPort.ReadLine();
-        		string[] gloveData = value.Split('/');
-        		Debug.Log(value);
 
-				flick = float.Parse(gloveData[3]);
-		
-				rotationVector.x = -float.Parse(gloveData[0]);
-            	rotationVector.z = -float.Parse(gloveData[1]);
-           		rotationVector.y = -float.Parse(gloveData[2]);
-            	transform.rotation = Quaternion.Euler(rotationVector);
-			}
-			else
-			{
-				rotationVector.z = Mathf.Lerp(-180, 180, roll);
-            	rotationVector.x = Mathf.Lerp(-180, 180, pitch);
-            	rotationVector.y = Mathf.Lerp(-180, 180, yaw);
-            	transform.rotation = Quaternion.Euler(rotationVector);
-			}
-            
+            if (!OpenSerial)
+            {
+                rotationVector.z = Mathf.Lerp(-180, 180, roll);
+                rotationVector.x = Mathf.Lerp(-180, 180, pitch);
+                rotationVector.y = Mathf.Lerp(-180, 180, yaw);
+                transform.rotation = Quaternion.Euler(rotationVector);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(gloveRotation);
+            }
+
         }
 
         if (IndexBase != null || IndexMid != null || IndexTop != null ||
@@ -178,13 +202,16 @@ public class FingerMovementScript : MonoBehaviour
 
         if (GlobalVariableStorrage.Health <= 0)
         {
+            backgroundThread.Abort();
+            serialPort.Close();
+
             gameManager.EndGame();
         }
 
         float deltaFlick = Mathf.Abs(flick - lastFlickValue);
 
         GlobalVariableStorrage.DeltaFlick = deltaFlick;
-        
+
         lastFlickValue = flick;
     }
 }

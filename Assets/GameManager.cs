@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverScreen;
     public PostProcessVolume ppVolume;
     private DepthOfField dof;
+
+    private GameObject score;
+    private Text scoreText;
 
     public GameObject directionalLightObject;
     private Light directionalLight;
@@ -25,6 +29,10 @@ public class GameManager : MonoBehaviour
         ppVolume.profile.TryGetSettings(out dof);
         Debug.Log("START");
         dof.enabled.value = false;
+
+        score = GameObject.Find("ScoreText");
+        scoreText = score.GetComponent<Text>();
+        scoreText.text = "0";
     }
 
     public void EndGame()

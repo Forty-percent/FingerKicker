@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
+  explosion: {fileID: 5815527169743859963, guid: 5e30c38b219812449adcb2de46137406, type: 3}
   force: 20
